@@ -107,6 +107,7 @@ maxCacheSize: 5.33 GB
 ### Table of contents
 
 - [Create new enviornment](#create-new-env)
+  * [Via mamba](#new-env-mamba)
   * [Via conda](#new-env-conda)
   * [Via virtualenv](#new-env-virtualenv)
 
@@ -138,7 +139,7 @@ mamba env create -n nutri-score -f docs/config/nutri-score_env.yaml
 
 <a id="new-env-conda" />
 
-#### 1.1. Via conda
+#### 1.2. Via conda
 
 Before starting further, make sure that you have `conda` (Anaconda) installed (otherwise, create a new env via [virutalenv](#new-env-virtualenv)). We will create a new enviornment for the purpose of our labs:
 
@@ -154,7 +155,7 @@ conda activate nutri-score
 
 <a id="new-env-virtualenv" />
 
-#### 1.2. Via virtualenv
+#### 1.3. Via virtualenv
 
 You can create your virtual enviornment without conda as well. In order to do that, make sure that you have [`virtualenv`](https://pypi.org/project/virtualenv/) installed or else, you can install it via:
 
