@@ -139,7 +139,7 @@ mamba env create -n nutri-score -f docs/config/nutri-score_env.yaml
 Before starting further, make sure that you have `conda` (Anaconda) installed (otherwise, create a new env via [virutalenv](#new-env-virtualenv)). We will create a new enviornment for the purpose of our labs:
 
 ```bash
-conda create -n nutri-score python=3 -y 
+conda create -n nutri-score -f docs/config/nutri-score_env.yaml -y
 ```
 
 and activate it
