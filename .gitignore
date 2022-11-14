@@ -129,5 +129,6 @@ dmypy.json
 .pyre/
 
 # Ignore these files
+data/raw_products.csv
 commit.sh
 update_git.py
