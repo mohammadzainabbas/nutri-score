@@ -132,5 +132,4 @@ dmypy.json
 data/raw_products.csv
 commit.sh
 update_git.py
-
-
+.DS_Store
