@@ -1,4 +1,4 @@
-name: decision_modelling
+name: nutri-score
 channels:
   - apple
   - conda-forge
