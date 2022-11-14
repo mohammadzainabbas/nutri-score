@@ -116,6 +116,22 @@ maxCacheSize: 5.33 GB
 
 ### 1. Create new enviornment
 
+```bash
+brew install mambaforge
+```
+
+And then later install `mamba` via
+
+```bash
+conda install mamba -n base -c conda-forge
+```
+
+Now, you can create a new env via
+
+```bash
+mamba env create -n nutri-score -f docs/config/nutri-score_env.yaml
+```
+
 <a id="new-env-conda" />
 
 #### 1.1. Via conda
