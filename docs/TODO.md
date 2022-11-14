@@ -1,0 +1,2 @@
+- [] No drinks
+- [] Just food of some particular category 
