@@ -116,6 +116,10 @@ maxCacheSize: 5.33 GB
 
 ### 1. Create new enviornment
 
+<a id="new-env-mamba" />
+
+#### 1.1. Via mamba
+
 ```bash
 brew install mambaforge
 ```
