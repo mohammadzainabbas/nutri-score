@@ -9,6 +9,9 @@ import requests
 def print_log(text: str) -> None: print(f"[log] {text}")
 def print_error(text: str) -> None: print(f"[error] {text}")
 
+def fetch_products(category: str, total_data_points: int) -> list:
+    
+
 def main() -> None:
     # Default configuration
     category_name = "Plant-based foods"
