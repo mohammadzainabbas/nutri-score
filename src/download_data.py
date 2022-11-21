@@ -9,6 +9,17 @@ import requests
 def print_log(text: str) -> None: print(f"[log] {text}")
 def print_error(text: str) -> None: print(f"[error] {text}")
 
+def column_mapping() -> dict:
+    return {
+    "id": "id",
+    "name": "product_name",
+    "image_url": "image_url",
+    "brand": "brands",
+    "categories": "categories",
+    "nutriscore_data": "nutriscore_data.all",
+    "nutriments": "nutriments.all",
+}
+
 def fetch_products(category: str, required_columns: list, total_data_points: int) -> list:
     products = list()
     i = 0
