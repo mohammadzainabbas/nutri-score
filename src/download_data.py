@@ -82,4 +82,4 @@ def main() -> None:
 if __name__ == "__main__":
     # main()
     print_log(abspath(__file__))
-    print_log(abspath(join(getcwd(), pardir)))
+    print_log(abspath(join(abspath(__file__), pardir)))
