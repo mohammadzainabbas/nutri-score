@@ -10,7 +10,18 @@ def print_log(text: str) -> None: print(f"[log] {text}")
 def print_error(text: str) -> None: print(f"[error] {text}")
 
 def fetch_products(category: str, total_data_points: int) -> list:
-    
+    products = list()
+    i = 0
+    for _product in openfoodfacts.products.get_all_by_category(category.get('id')):
+        all_columns = list(_product.keys())
+        invalid = False
+        for c in required_columns:
+            if c not in all_columns: invalid = True
+        if invalid: continue
+        products.append(_product)
+        if i >= total_data_points: break
+        i += 1
+
 
 def main() -> None:
     # Default configuration
