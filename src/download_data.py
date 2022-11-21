@@ -81,4 +81,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     # main()
-    print_log(__file__)
+    print_log(abspath(__file__))
