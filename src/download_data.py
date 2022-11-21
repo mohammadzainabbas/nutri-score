@@ -6,3 +6,8 @@ import numpy as np
 import openfoodfacts
 import requests
 
+def main() -> None:
+    
+
+if __name__ == "__main__":
+    main()
