@@ -9,7 +9,7 @@ import requests
 def print_log(text: str) -> None: print(f"[log] {text}")
 def print_error(text: str) -> None: print(f"[error] {text}")
 
-def column_mapping() -> dict:
+def columns_mapping() -> dict:
     return {
     "id": "id",
     "name": "product_name",
@@ -40,6 +40,9 @@ def main() -> None:
     total_data_points = 1000
     parent_dir = abspath(join(getcwd(), pardir))
     data_dir = join(parent_dir, 'data')
+    
+    column_mapping = column_mapping()
+
 
     # Fetch categories data
     print_log(f"Fetching all categories from OpenFoodFacts")
