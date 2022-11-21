@@ -57,7 +57,7 @@ def main(total_data_points: int = 100, category_name: str = "Plant-based foods")
     # total_data_points = 1000
     parent_dir = abspath(join(dirname(abspath(__file__)), pardir))
     data_dir = join(parent_dir, 'data')
-    output_file = join(data_dir, 'products.csv')
+    output_file = join(data_dir, 'products1.csv')
 
     column_mapping = columns_mapping()
     required_columns = [x.split(".")[0] for x in list(column_mapping.values())]
