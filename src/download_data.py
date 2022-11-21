@@ -47,6 +47,7 @@ def fetch_products(category: str, column_mapping: dict, required_columns: list, 
         products.append(preprocess_products(_product, column_mapping))
         if i >= total_data_points: break
         i += 1
+    return products
 
 def main() -> None:
     # Default configuration
