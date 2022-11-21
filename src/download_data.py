@@ -54,7 +54,8 @@ def main() -> None:
     total_data_points = 1000
     parent_dir = abspath(join(getcwd(), pardir))
     data_dir = join(parent_dir, 'data')
-    
+    output_file = join(data_dir, 'products.csv')
+
     column_mapping = columns_mapping()
     required_columns = [x.split(".")[0] for x in list(column_mapping.values())]
 
@@ -74,11 +75,8 @@ def main() -> None:
     # Save data
     print_log(f"Saving data to {data_dir}")
     df = pd.DataFrame(data)
-    df.to_csv(join(data_dir, 'products.csv'), index=False)
-    
-
-
-
+    df.to_csv(output_file, index=False)
+    print_log(f"Saving data to {output_file}")
 
 if __name__ == "__main__":
     main()
