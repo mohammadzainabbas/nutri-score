@@ -88,6 +88,5 @@ if __name__ == "__main__":
     parser.add_argument("-t", "--total_datapoints", help="Total data-points to download and save, default: 100", type=int, default=100)
     parser.add_argument("-c","--category", help="Category for which you want the data, default: 'Plant-based foods'", type=str, default="Plant-based foods")
     parser.add_argument("-p","--save_dir", help="Directory for data to be saved.", type=str, default="data")
-    parser.add_argument("--debug", help="Produce a comparsion script to show the modification(s) done to each file.", action="store_true")
     args = parser.parse_args()
-    # main()
+    main()
