@@ -51,10 +51,10 @@ def fetch_products(category: str, column_mapping: dict, required_columns: list, 
         i += 1
     return products
 
-def main(total_datapoints: int = 100, category: str = "Plant-based foods") -> None:
+def main(total_data_points: int = 100, category_name: str = "Plant-based foods") -> None:
     # Default configuration
-    category_name = "Plant-based foods"
-    total_data_points = 1000
+    # category_name = "Plant-based foods"
+    # total_data_points = 1000
     parent_dir = abspath(join(dirname(abspath(__file__)), pardir))
     data_dir = join(parent_dir, 'data')
     output_file = join(data_dir, 'products.csv')
