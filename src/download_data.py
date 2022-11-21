@@ -51,7 +51,7 @@ def fetch_products(category: str, column_mapping: dict, required_columns: list, 
         i += 1
     return products
 
-def main() -> None:
+def main(total_datapoints: int = 100, category: str = "Plant-based foods") -> None:
     # Default configuration
     category_name = "Plant-based foods"
     total_data_points = 1000
