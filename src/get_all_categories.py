@@ -10,6 +10,8 @@ def print_error(text: str) -> None: print(f"[error] {text}")
 def fetch_categories() -> list:
     return openfoodfacts.facets.get_categories()
 
+def preprocess_categories(category: dict) -> dict:
+
 def main() -> None:
     # Default configuration
     parent_dir = abspath(join(dirname(abspath(__file__)), pardir))
