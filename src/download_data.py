@@ -52,7 +52,6 @@ def main() -> None:
     # Default configuration
     category_name = "Plant-based foods"
     total_data_points = 5
-    # parent_dir = abspath(join(getcwd(), pardir))
     parent_dir = abspath(join(getcwd(), pardir))
     data_dir = join(parent_dir, 'data')
     output_file = join(data_dir, 'products.csv')
