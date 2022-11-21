@@ -84,7 +84,8 @@ def main() -> None:
 if __name__ == "__main__":
 
     basename = argv[0] if len(argv) else "download_data.py"
-    parser = ArgumentParser("{} modifies your TPC-DS queries for Spark SQL".format(basename))
+    parser = ArgumentParser(f"Script '{basename}' downloads data from 'openfoodfacts.org' and saves it")
+    parser.add_argument("-total_datapoints", help="Directory for modified queries to be saved.", type=str, default="modified_queries")
     parser.add_argument("-queries_dir", help="Directory for queries to be modified.", type=str)
     parser.add_argument("-save_dir", help="Directory for modified queries to be saved.", type=str, default="modified_queries")
     parser.add_argument("--debug", help="Produce a comparsion script to show the modification(s) done to each file.", action="store_true")
