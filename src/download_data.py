@@ -5,6 +5,8 @@ import pandas as pd
 import numpy as np
 import openfoodfacts
 import requests
+from argparse import ArgumentParser
+from sys import argv
 
 def print_log(text: str) -> None: print(f"[log] {text}")
 def print_error(text: str) -> None: print(f"[error] {text}")
