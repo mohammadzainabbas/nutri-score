@@ -16,7 +16,7 @@ def main() -> None:
     parent_dir = abspath(join(getcwd(), pardir))
     data_dir = join(parent_dir, 'data')
 
-    # Download data
+    # Fetch categories data
     print_log(f"Fetching all categories from OpenFoodFacts")
     categories = openfoodfacts.facets.get_categories()
     print_log(f"Found {len(categories)} categories")
@@ -25,7 +25,10 @@ def main() -> None:
     category = list(filter(lambda c: c['name'] == category_name, categories))[0]
     print_log(f"Found category {category['name']} with {category['products']} products")
 
+    # Fetch products
+    print_log(f"Fetching {total_data_points} products from category {category_name}")
     
+
 
 
 
