@@ -80,4 +80,5 @@ def main() -> None:
     print_log(f"Saving data to {output_file}")
 
 if __name__ == "__main__":
-    main()
+    # main()
+    print_log(__file__)
