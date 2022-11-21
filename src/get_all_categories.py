@@ -11,6 +11,10 @@ def fetch_categories() -> list:
     return openfoodfacts.facets.get_categories()
 
 def preprocess_categories(category: dict) -> dict:
+    return {
+        "name": category.get('name'),
+        "products": category.get('products'),
+    }
 
 def main() -> None:
     # Default configuration
