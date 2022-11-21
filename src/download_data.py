@@ -20,6 +20,23 @@ def columns_mapping() -> dict:
     "nutriments": "nutriments.all",
 }
 
+def preprocess_products(product: dict, column_mapping: dict) -> dict:
+    # Rename columns
+    for k, v in column_mapping.items():
+        product[k] = product.pop(v)
+
+    # Extract nutriments
+    nutriments = product.pop('nutriments')
+    for k, v in nutriments.items():
+        product[k] = v
+
+    # Extract nutriscore data
+    nutriscore_data = product.pop('nutriscore_data')
+    for k, v in nutriscore_data.items():
+        product[k] = v
+
+    return product
+
 def fetch_products(category: str, required_columns: list, total_data_points: int) -> list:
     products = list()
     i = 0
