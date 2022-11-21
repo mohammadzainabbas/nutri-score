@@ -27,8 +27,7 @@ def main() -> None:
 
     # Fetch products
     print_log(f"Fetching {total_data_points} products from category {category_name}")
-    
-
+    data = fetch_products(category['id'], total_data_points)
 
 
 
