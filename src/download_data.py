@@ -60,7 +60,7 @@ def main() -> None:
     required_columns = [x.split(".")[0] for x in list(column_mapping.values())]
 
     # Fetch categories data
-    print_log(f"Fetching all categories from OpenFoodFacts")
+    print_log(f"Fetching all categories from 'openfoodfacts.org'")
     categories = openfoodfacts.facets.get_categories()
     print_log(f"Found {len(categories)} categories")
 
