@@ -14,8 +14,7 @@ def main() -> None:
     category_name = "Plant-based foods"
     total_data_points = 1000
     parent_dir = abspath(join(getcwd(), pardir))
-    data_path = join(getcwd(), "data")
-
+    data_dir = join(parent_dir, 'data')
 
 if __name__ == "__main__":
     main()
