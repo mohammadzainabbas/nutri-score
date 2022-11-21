@@ -11,13 +11,13 @@ def print_error(text: str) -> None: print(f"[error] {text}")
 
 def columns_mapping() -> dict:
     return {
-    "id": "id",
-    "name": "product_name",
-    "image_url": "image_url",
-    "brand": "brands",
-    "categories": "categories",
-    "nutriscore_data": "nutriscore_data.all",
-    "nutriments": "nutriments.all",
+        "id": "id",
+        "name": "product_name",
+        "image_url": "image_url",
+        "brand": "brands",
+        "categories": "categories",
+        "nutriscore_data": "nutriscore_data.all",
+        "nutriments": "nutriments.all",
 }
 
 def get_mapping(data, key, value):
