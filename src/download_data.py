@@ -12,7 +12,9 @@ def print_error(text: str) -> None: print(f"[error] {text}")
 def main() -> None:
     # Default configuration
     category_name = "Plant-based foods"
-    
+    total_data_points = 1000
+    parent_dir = abspath(join(getcwd(), pardir))
+    data_path = join(getcwd(), "data")
 
 
 if __name__ == "__main__":
