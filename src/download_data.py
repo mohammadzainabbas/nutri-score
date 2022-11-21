@@ -89,4 +89,4 @@ if __name__ == "__main__":
     parser.add_argument("-c","--category", help="Category for which you want the data, default: 'Plant-based foods'", type=str, default="Plant-based foods")
     # parser.add_argument("-p","--save_dir", help="Directory for data to be saved.", type=str, default="data")
     args = parser.parse_args()
-    main()
+    main(total_data_points=args.total_datapoints, category_name=args.category)
