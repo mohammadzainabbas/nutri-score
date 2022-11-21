@@ -27,17 +27,13 @@ def main() -> None:
     categories = fetch_categories()
     print_log(f"Found {len(categories)} categories")
 
-    # Find category
-    category = list(filter(lambda c: c['name'] == category_name, categories))[0]
-    print_log(f"Found category {category['name']} with {category['products']} products")
-
-    # Fetch products
-    print_log(f"Fetching {total_data_points} products from category {category_name}")
-    data = fetch_products(category.get('id'), column_mapping, required_columns, total_data_points)
+    # Process categories data
+    print_log(f"Processing categories data")
+    categories = [preprocess_categories(c) for c in categories]
 
     # Save data
     print_log(f"Saving data to {data_dir}")
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(categories)
     df.to_csv(output_file, index=False)
     print_log(f"Saving data to {output_file}")
 
