@@ -33,7 +33,6 @@ def fetch_products(category: str, required_columns: list, total_data_points: int
         if i >= total_data_points: break
         i += 1
 
-
 def main() -> None:
     # Default configuration
     category_name = "Plant-based foods"
@@ -55,7 +54,7 @@ def main() -> None:
 
     # Fetch products
     print_log(f"Fetching {total_data_points} products from category {category_name}")
-    data = fetch_products(category.get('id'), total_data_points)
+    data = fetch_products(category.get('id'), required_columns, total_data_points)
 
 
 
