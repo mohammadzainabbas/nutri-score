@@ -1,5 +1,5 @@
 from os import getcwd
-from os.path import join, abspath, pardir, relpath, exists
+from os.path import join, abspath, pardir, relpath, exists, dirname
 from dataclasses import dataclass, field
 import pandas as pd
 import numpy as np
