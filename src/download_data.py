@@ -41,8 +41,8 @@ def main() -> None:
     parent_dir = abspath(join(getcwd(), pardir))
     data_dir = join(parent_dir, 'data')
     
-    column_mapping = column_mapping()
-
+    column_mapping = columns_mapping()
+    required_columns = [x.split(".")[0] for x in list(column_mapping.values())]
 
     # Fetch categories data
     print_log(f"Fetching all categories from OpenFoodFacts")
