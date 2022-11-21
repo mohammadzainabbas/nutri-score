@@ -7,47 +7,10 @@ from sys import argv
 def print_log(text: str) -> None: print(f"[log] {text}")
 def print_error(text: str) -> None: print(f"[error] {text}")
 
-def columns_mapping() -> dict:
-    return {
-        "id": "id",
-        "name": "product_name",
-        "image_url": "image_url",
-        "brand": "brands",
-        "categories": "categories",
-        "nutriscore_data": "nutriscore_data.all",
-        "nutriments": "nutriments.all",
-}
+def fetch_categories() -> list:
+    return openfoodfacts.facets.get_categories()
 
-def get_mapping(data, key, value):
-    values = value.split(".")
-    is_all = "all" in values
-    _data = data
-    for val in values:
-        if is_all and val == "all": break
-        _data = _data[val]
-    return {key: _data} if not is_all else _data
-
-def preprocess_products(product: dict, column_mapping: dict) -> dict:
-    _data = dict()
-    for key in column_mapping.keys():
-        _data.update(get_mapping(product, key, column_mapping[key]))
-    return _data
-
-def fetch_products(category: str, column_mapping: dict, required_columns: list, total_data_points: int) -> list:
-    products = list()
-    i = 0
-    for _product in openfoodfacts.products.get_all_by_category(category):
-        all_columns = list(_product.keys())
-        invalid = False
-        for c in required_columns:
-            if c not in all_columns: invalid = True
-        if invalid: continue
-        products.append(preprocess_products(_product, column_mapping))
-        if i >= total_data_points: break
-        i += 1
-    return products
-
-def main(total_data_points: int = 100, category_name: str = "Plant-based foods") -> None:
+def main() -> None:
     # Default configuration
     parent_dir = abspath(join(dirname(abspath(__file__)), pardir))
     data_dir = join(parent_dir, 'data')
