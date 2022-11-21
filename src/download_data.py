@@ -20,6 +20,15 @@ def columns_mapping() -> dict:
     "nutriments": "nutriments.all",
 }
 
+def get_mapping(data, key, value):
+    values = value.split(".")
+    is_all = "all" in values
+    _data = data
+    for val in values:
+        if is_all and val == "all": break
+        _data = _data[val]
+    return {key: _data} if not is_all else _data
+
 def preprocess_products(product: dict, column_mapping: dict) -> dict:
     data = list()
     _data = dict()
