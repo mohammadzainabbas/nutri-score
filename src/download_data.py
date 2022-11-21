@@ -71,6 +71,10 @@ def main() -> None:
     print_log(f"Fetching {total_data_points} products from category {category_name}")
     data = fetch_products(category.get('id'), column_mapping, required_columns, total_data_points)
 
+    # Save data
+    print_log(f"Saving data to {data_dir}")
+    
+
 
 
 if __name__ == "__main__":
