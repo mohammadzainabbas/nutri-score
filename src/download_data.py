@@ -44,7 +44,7 @@ def fetch_products(category: str, required_columns: list, total_data_points: int
         for c in required_columns:
             if c not in all_columns: invalid = True
         if invalid: continue
-        products.append(_product)
+        products.append(preprocess_products(_product))
         if i >= total_data_points: break
         i += 1
 
