@@ -17,7 +17,13 @@ def main() -> None:
     data_dir = join(parent_dir, 'data')
 
     # Download data
-    print_log(f"Downloading data for category '{category_name}'")
+    print_log(f"Fetching all categories from OpenFoodFacts")
+    categories = openfoodfacts.facets.get_categories()
+    print_log(f"Found {len(categories)} categories")
+
+    # Find category
+    
+
 
 
 if __name__ == "__main__":
