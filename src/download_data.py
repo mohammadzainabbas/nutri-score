@@ -87,6 +87,6 @@ if __name__ == "__main__":
     parser = ArgumentParser(f"Script '{basename}' downloads data from 'openfoodfacts.org' and saves it")
     parser.add_argument("-t", "--total_datapoints", help="Total data-points to download and save, default: 100", type=int, default=100)
     parser.add_argument("-c","--category", help="Category for which you want the data, default: 'Plant-based foods'", type=str, default="Plant-based foods")
-    parser.add_argument("-p","--save_dir", help="Directory for data to be saved.", type=str, default="data")
+    # parser.add_argument("-p","--save_dir", help="Directory for data to be saved.", type=str, default="data")
     args = parser.parse_args()
     main()
