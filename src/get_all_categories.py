@@ -14,10 +14,7 @@ def main() -> None:
     # Default configuration
     parent_dir = abspath(join(dirname(abspath(__file__)), pardir))
     data_dir = join(parent_dir, 'data')
-    output_file = join(data_dir, 'products.csv')
-
-    column_mapping = columns_mapping()
-    required_columns = [x.split(".")[0] for x in list(column_mapping.values())]
+    output_file = join(data_dir, 'categories.csv')
 
     # Fetch categories data
     print_log(f"Fetching all categories from 'openfoodfacts.org'")
