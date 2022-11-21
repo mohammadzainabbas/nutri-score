@@ -24,7 +24,7 @@ def main() -> None:
 
     # Fetch categories data
     print_log(f"Fetching all categories from 'openfoodfacts.org'")
-    categories = openfoodfacts.facets.get_categories()
+    categories = fetch_categories()
     print_log(f"Found {len(categories)} categories")
 
     # Find category
