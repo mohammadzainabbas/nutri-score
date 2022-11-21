@@ -1,10 +1,6 @@
-from os import getcwd
-from os.path import join, abspath, pardir, relpath, exists, dirname
-from dataclasses import dataclass, field
+from os.path import join, abspath, pardir, dirname
 import pandas as pd
-import numpy as np
 import openfoodfacts
-import requests
 from argparse import ArgumentParser
 from sys import argv
 
