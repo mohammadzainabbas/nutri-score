@@ -85,10 +85,10 @@ if __name__ == "__main__":
 
     basename = argv[0] if len(argv) else "download_data.py"
     parser = ArgumentParser(f"Script '{basename}' downloads data from 'openfoodfacts.org' and saves it")
-    ('--height', type=int required=False default=640 help='Inference model input height, default 640')
-    parser.add_argument("-t", "--total_datapoints", help="Total data-points to download and save.", type=int, default=100)
+    parser.add_argument("-t", "--total_datapoints", help="Total data-points to download and save, default: 100", type=int, default=100)
+    parser.add_argument("-c","--category", help="Category for which we ", type=str, default="data")
+    parser.add_argument("-p","--save_dir", help="Directory for data to be saved.", type=str, default="data")
     parser.add_argument("-queries_dir", help="Directory for queries to be modified.", type=str)
-    parser.add_argument("-save_dir", help="Directory for modified queries to be saved.", type=str, default="modified_queries")
     parser.add_argument("--debug", help="Produce a comparsion script to show the modification(s) done to each file.", action="store_true")
     args = parser.parse_args()
     # main()
