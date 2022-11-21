@@ -16,5 +16,9 @@ def main() -> None:
     parent_dir = abspath(join(getcwd(), pardir))
     data_dir = join(parent_dir, 'data')
 
+    # Download data
+    print_log(f"Downloading data for category '{category_name}'")
+
+
 if __name__ == "__main__":
     main()
