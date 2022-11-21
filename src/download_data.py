@@ -73,6 +73,8 @@ def main() -> None:
 
     # Save data
     print_log(f"Saving data to {data_dir}")
+    df = pd.DataFrame(data)
+    df.to_csv(join(data_dir, 'products.csv'), index=False)
     
 
 
