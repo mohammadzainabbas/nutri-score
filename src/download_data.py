@@ -22,6 +22,9 @@ def main() -> None:
     print_log(f"Found {len(categories)} categories")
 
     # Find category
+    category = list(filter(lambda c: c['name'] == category_name, categories))[0]
+    print_log(f"Found category {category['name']} with {category['products']} products")
+
     
 
 
