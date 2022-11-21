@@ -35,7 +35,7 @@ def preprocess_products(product: dict, column_mapping: dict) -> dict:
         _data.update(get_mapping(product, key, column_mapping[key]))
     return _data
 
-def fetch_products(category: str, required_columns: list, total_data_points: int) -> list:
+def fetch_products(category: str, column_mapping: dict, required_columns: list, total_data_points: int) -> list:
     products = list()
     i = 0
     for _product in openfoodfacts.products.get_all_by_category(category):
@@ -44,7 +44,7 @@ def fetch_products(category: str, required_columns: list, total_data_points: int
         for c in required_columns:
             if c not in all_columns: invalid = True
         if invalid: continue
-        products.append(preprocess_products(_product))
+        products.append(preprocess_products(_product, column_mapping))
         if i >= total_data_points: break
         i += 1
 
@@ -69,7 +69,7 @@ def main() -> None:
 
     # Fetch products
     print_log(f"Fetching {total_data_points} products from category {category_name}")
-    data = fetch_products(category.get('id'), required_columns, total_data_points)
+    data = fetch_products(category.get('id'), column_mapping, required_columns, total_data_points)
 
 
 
