@@ -30,12 +30,10 @@ def get_mapping(data, key, value):
     return {key: _data} if not is_all else _data
 
 def preprocess_products(product: dict, column_mapping: dict) -> dict:
-    data = list()
     _data = dict()
     for key in column_mapping.keys():
         _data.update(get_mapping(product, key, column_mapping[key]))
-    data.append(_data)
-        
+    return _data
 
 def fetch_products(category: str, required_columns: list, total_data_points: int) -> list:
     products = list()
