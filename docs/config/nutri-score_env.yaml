@@ -20,3 +20,10 @@ dependencies:
     - numpy
     - pulp
     - openfoodfacts
+
+Yaml files
+    .yaml
+    .yml
+
+.py
+.pyc
