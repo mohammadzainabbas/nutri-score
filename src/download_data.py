@@ -28,7 +28,7 @@ def get_mapping(data: Dict[str, Any], key: str, value: str) -> Dict[str, Any]:
         _data = _data[val]
     return {key: _data} if not is_all else _data
 
-def preprocess_products(product: dict, column_mapping: dict) -> dict:
+def preprocess_products(product: Dict[str, Any], column_mapping: Dict[str, str]) -> dict:
     _data = dict()
     for key in column_mapping.keys():
         _data.update(get_mapping(product, key, column_mapping[key]))
