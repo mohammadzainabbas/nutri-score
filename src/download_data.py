@@ -48,9 +48,12 @@ def fetch_products(category: str, column_mapping: dict, required_columns: list, 
         # 2. No products with no nutriscore
         if product.get("nutriscore_data") is None: invalid = True
 
-        # 3. No products with no nutriments
-        if product.get("nutriments") is None: invalid = True
-        
+        # 3. Invalid negative values
+        if product.get("negative_points") != product.get("energy_points") + product.get("saturated_fat_points") + product.get("sugars_points") + product.get("sodium_points"): invalid = True
+
+        # 4. Invalid negative values
+        if product.get("negative_points") != product.get("energy_points") + product.get("saturated_fat_points") + product.get("sugars_points") + product.get("sodium_points"): invalid = True
+
         if invalid: continue
         products.append(product)
         if i >= total_data_points: break
