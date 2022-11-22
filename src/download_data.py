@@ -91,7 +91,7 @@ def main(total_data_points: int = 100, category_name: str = "Plant-based foods")
     print_log(f"Found category {category['name']} with {category['products']} products")
 
     # Fetch products
-    print_log(f"Fetching {total_data_points} products from category {category_name}")
+    print_log(f"Fetching {total_data_points} products from category '{category_name}'")
     data = fetch_products(category.get('id'), column_mapping, required_columns, total_data_points)
 
     # Save data
