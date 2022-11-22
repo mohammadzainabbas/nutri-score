@@ -19,7 +19,7 @@ def columns_mapping() -> Dict[str, str]:
         "nutriments": "nutriments.all",
 }
 
-def get_mapping(data: Dict[str, Any], key, value):
+def get_mapping(data: Dict[str, Any], key: str, value: str) -> Dict[str, Any]:
     values = value.split(".")
     is_all = "all" in values
     _data = data
