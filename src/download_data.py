@@ -43,9 +43,10 @@ def fetch_products(category: str, column_mapping: dict, required_columns: list, 
     check_keys = ["is_beverage", "negative_points", "energy_points", "saturated_fat_points", "sugars_points", "sodium_points", "positive_points", "fiber_points", "proteins_points", "fruits_vegetables_nuts_colza_walnut_olive_oils_points"]
     for _product in openfoodfacts.products.get_all_by_category(category):
         all_columns = list(_product.keys())
-        invalid = False
-        for c in required_columns:
-            if c not in all_columns: invalid = True
+        invalid = not check_required_columns(_product, required_columns)
+        # invalid = False
+        # for c in required_columns:
+        #     if c not in all_columns: invalid = True
         if invalid: continue
         product = preprocess_products(_product, column_mapping)
         
