@@ -53,7 +53,7 @@ def fetch_products(category: str, column_mapping: dict, required_columns: list, 
         invalid = not check_required_columns(product, check_keys)
         if invalid: continue
         
-        # Check some sanity checks
+        # Check some sanity checks (for correctness)
         # 1. No drinks allowed
         if product.get("is_beverage") == float(1): invalid = True
         # 2. Invalid negative values
