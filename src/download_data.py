@@ -45,10 +45,15 @@ def fetch_products(category: str, column_mapping: dict, required_columns: list, 
         # Check if we got correct data from the API
         invalid = not check_required_columns(_product, required_columns)
         if invalid: continue
+        
+        # Preprocess product data by mapping columns
         product = preprocess_products(_product, column_mapping)
+
+        # Check if we got all the keys we need for sanity check
         invalid = not check_required_columns(product, check_keys)
         if invalid: continue
         
+        # Check some sanity checks
         # 1. No drinks allowed
         if product.get("is_beverage") == float(1): invalid = True
         # 2. Invalid negative values
