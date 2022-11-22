@@ -1,7 +1,7 @@
 from os.path import join, abspath, pardir, dirname
 import pandas as pd
 import openfoodfacts
-from typing import List, Dict
+from typing import List, Dict, Any
 from argparse import ArgumentParser
 from sys import argv
 
@@ -19,7 +19,7 @@ def columns_mapping() -> Dict[str, str]:
         "nutriments": "nutriments.all",
 }
 
-def get_mapping(data, key, value):
+def get_mapping(data: Dict[str, Any], key, value):
     values = value.split(".")
     is_all = "all" in values
     _data = data
