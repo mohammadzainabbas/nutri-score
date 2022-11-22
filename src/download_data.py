@@ -1,13 +1,14 @@
 from os.path import join, abspath, pardir, dirname
 import pandas as pd
 import openfoodfacts
+from typing import List, Dict
 from argparse import ArgumentParser
 from sys import argv
 
 def print_log(text: str) -> None: print(f"[log] {text}")
 def print_error(text: str) -> None: print(f"[error] {text}")
 
-def columns_mapping() -> dict:
+def columns_mapping() -> Dict[str, str]:
     return {
         "id": "id",
         "name": "product_name",
