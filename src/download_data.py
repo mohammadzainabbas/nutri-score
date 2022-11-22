@@ -42,7 +42,8 @@ def fetch_products(category: str, column_mapping: dict, required_columns: list, 
         for c in required_columns:
             if c not in all_columns: invalid = True
         product = preprocess_products(_product, column_mapping)
-        if product.get("")
+        if product.get("is_beverage"): invalid = True
+        if product.get("nutriscore_data") is None: invalid = True
         if invalid: continue
         products.append(product)
         if i >= total_data_points: break
