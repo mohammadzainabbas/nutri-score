@@ -1,13 +1,14 @@
 from os.path import join, abspath, pardir, dirname
 import pandas as pd
 import openfoodfacts
+from typing import List, Dict, Any
 from argparse import ArgumentParser
 from sys import argv
 
 def print_log(text: str) -> None: print(f"[log] {text}")
 def print_error(text: str) -> None: print(f"[error] {text}")
 
-def columns_mapping() -> dict:
+def columns_mapping() -> Dict[str, str]:
     return {
         "id": "id",
         "name": "product_name",
@@ -18,7 +19,7 @@ def columns_mapping() -> dict:
         "nutriments": "nutriments.all",
 }
 
-def get_mapping(data, key, value):
+def get_mapping(data: Dict[str, Any], key: str, value: str) -> Dict[str, Any]:
     values = value.split(".")
     is_all = "all" in values
     _data = data
@@ -27,15 +28,15 @@ def get_mapping(data, key, value):
         _data = _data[val]
     return {key: _data} if not is_all else _data
 
-def preprocess_products(product: dict, column_mapping: dict) -> dict:
+def preprocess_products(product: Dict[str, Any], column_mapping: Dict[str, str]) -> Dict[str, Any]:
     _data = dict()
     for key in column_mapping.keys():
         _data.update(get_mapping(product, key, column_mapping[key]))
     return _data
 
-def fetch_products(category: str, column_mapping: dict, required_columns: list, total_data_points: int) -> list:
+def fetch_products(category: str, column_mapping: Dict[str, str], required_columns: List[str], total_data_points: int) -> List[Dict[str, Any]]:
 
-    def check_required_columns(_product: dict, _required_columns: list) -> bool:
+    def check_required_columns(_product: Dict[str, Any], _required_columns: List[str]) -> bool:
         return all([x in list(_product.keys()) for x in _required_columns])
 
     products = list()
@@ -82,11 +83,15 @@ def main(total_data_points: int = 100, category_name: str = "Plant-based foods")
     print_log(f"Found {len(categories)} categories")
 
     # Find category
-    category = list(filter(lambda c: c['name'] == category_name, categories))[0]
+    find_category = list(filter(lambda c: c['name'] == category_name, categories))
+    if not len(find_category):
+        print_error(f"Category '{category_name}' not found")
+        return
+    category = find_category[0]
     print_log(f"Found category {category['name']} with {category['products']} products")
 
     # Fetch products
-    print_log(f"Fetching {total_data_points} products from category {category_name}")
+    print_log(f"Fetching {total_data_points} products from category '{category_name}'")
     data = fetch_products(category.get('id'), column_mapping, required_columns, total_data_points)
 
     # Save data
