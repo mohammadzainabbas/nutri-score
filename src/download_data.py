@@ -84,6 +84,9 @@ def main(total_data_points: int = 100, category_name: str = "Plant-based foods")
 
     # Find category
     find_category = list(filter(lambda c: c['name'] == category_name, categories))
+    if len(find_category) == 0:
+        print_error(f"Category '{category_name}' not found")
+        return
     category = list(filter(lambda c: c['name'] == category_name, categories))[0]
     print_log(f"Found category {category['name']} with {category['products']} products")
 
