@@ -45,14 +45,11 @@ def fetch_products(category: str, column_mapping: dict, required_columns: list, 
         # 1. No drinks allowed
         if product.get("is_beverage") == float(1): invalid = True
         
-        # 2. No products with no nutriscore
-        if product.get("nutriscore_data") is None: invalid = True
-
-        # 3. Invalid negative values
+        # 2. Invalid negative values
         if product.get("negative_points") != product.get("energy_points") + product.get("saturated_fat_points") + product.get("sugars_points") + product.get("sodium_points"): invalid = True
 
-        # 4. Invalid negative values
-        if product.get("negative_points") != product.get("energy_points") + product.get("saturated_fat_points") + product.get("sugars_points") + product.get("sodium_points"): invalid = True
+        # 3. Invalid positive values
+        if product.get("positive_points") != product.get("fiber_points") + product.get("proteins_points") + product.get("fruits_vegetables_nuts_colza_walnut_olive_oils_points"): invalid = True
 
         if invalid: continue
         products.append(product)
