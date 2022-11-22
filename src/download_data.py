@@ -60,7 +60,7 @@ def fetch_products(category: str, column_mapping: dict, required_columns: list, 
         if product.get("positive_points") != (product.get("fiber_points") + product.get("proteins_points") + product.get("fruits_vegetables_nuts_colza_walnut_olive_oils_points")): invalid = True
         if invalid: continue
         products.append(product)
-        if i >= total_data_points: break
+        if (i + 1) >= total_data_points: break
         i += 1
     return products
 
