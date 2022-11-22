@@ -34,16 +34,36 @@ def preprocess_products(product: dict, column_mapping: dict) -> dict:
     return _data
 
 def fetch_products(category: str, column_mapping: dict, required_columns: list, total_data_points: int) -> list:
+
+    def check_required_columns(_product: dict, _required_columns: list) -> bool:
+        return all([x in list(_product.keys()) for x in _required_columns])
+
     products = list()
     i = 0
+    check_keys = ["is_beverage", "negative_points", "energy_points", "saturated_fat_points", "sugars_points", "sodium_points", "positive_points", "fiber_points", "proteins_points", "fruits_vegetables_nuts_colza_walnut_olive_oils_points"]
     for _product in openfoodfacts.products.get_all_by_category(category):
-        all_columns = list(_product.keys())
-        invalid = False
-        for c in required_columns:
-            if c not in all_columns: invalid = True
+        # Check if we got correct data from the API
+        invalid = not check_required_columns(_product, required_columns)
         if invalid: continue
-        products.append(preprocess_products(_product, column_mapping))
-        if i >= total_data_points: break
+        
+        # Preprocess product data by mapping columns
+        product = preprocess_products(_product, column_mapping)
+
+        # Check if we got all the keys we need for sanity check
+        invalid = not check_required_columns(product, check_keys)
+        if invalid: continue
+        
+        # Check some sanity checks (for correctness)
+        # 1. No drinks allowed
+        if product.get("is_beverage") == float(1): invalid = True
+        # 2. Invalid negative values
+        if product.get("negative_points") != (product.get("energy_points") + product.get("saturated_fat_points") + product.get("sugars_points") + product.get("sodium_points")): invalid = True
+        # 3. Invalid positive values
+        if product.get("positive_points") != (product.get("fiber_points") + product.get("proteins_points") + product.get("fruits_vegetables_nuts_colza_walnut_olive_oils_points")): invalid = True
+        
+        if invalid: continue
+        products.append(product)
+        if (i + 1) >= total_data_points: break
         i += 1
     return products
 
