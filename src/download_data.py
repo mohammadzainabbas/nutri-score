@@ -41,6 +41,7 @@ def fetch_products(category: str, column_mapping: dict, required_columns: list, 
         invalid = False
         for c in required_columns:
             if c not in all_columns: invalid = True
+        if invalid: continue
         product = preprocess_products(_product, column_mapping)
         # 1. No drinks allowed
         if product.get("is_beverage") == float(1): invalid = True
