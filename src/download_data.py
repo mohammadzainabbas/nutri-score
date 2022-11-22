@@ -36,7 +36,7 @@ def preprocess_products(product: Dict[str, Any], column_mapping: Dict[str, str])
 
 def fetch_products(category: str, column_mapping: Dict[str, str], required_columns: List[str], total_data_points: int) -> List[Dict[str, Any]]:
 
-    def check_required_columns(_product: dict, _required_columns: list) -> bool:
+    def check_required_columns(_product: Dict[str, Any], _required_columns: List[str]) -> bool:
         return all([x in list(_product.keys()) for x in _required_columns])
 
     products = list()
