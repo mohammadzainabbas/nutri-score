@@ -17,6 +17,7 @@ def columns_mapping() -> Dict[str, str]:
         "categories": "categories",
         "nutriscore_data": "nutriscore_data.all",
         "nutriments": "nutriments.all",
+        "food_group": "food_group",
 }
 
 def get_mapping(data: Dict[str, Any], key: str, value: str) -> Dict[str, Any]:
@@ -72,7 +73,7 @@ def main(total_data_points: int = 100, category_name: str = "Plant-based foods")
     # Default configuration
     parent_dir = abspath(join(dirname(abspath(__file__)), pardir))
     data_dir = join(parent_dir, 'data')
-    output_file = join(data_dir, 'products.csv')
+    output_file = join(data_dir, 'products_with_food_groups.csv')
 
     column_mapping = columns_mapping()
     required_columns = [x.split(".")[0] for x in list(column_mapping.values())]
